@@ -1,5 +1,5 @@
 ---
-title: "Why we invested into Neutronpay?"
+title: "Why we invested into Neutronpay"
 categories:
 tags:
 ---
