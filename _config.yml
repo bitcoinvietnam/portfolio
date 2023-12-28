@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: BitcoinVN Portfolio
-subtitle: Lorem ipsum dolor sit amet
+subtitle: Investments and Allocations
 email: portfolio@bitcoinvn.vo
 description: >- # this means to ignore newlines until "baseurl:"
   Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet,
