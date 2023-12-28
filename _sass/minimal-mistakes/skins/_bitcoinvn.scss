@@ -1,0 +1,34 @@
+/* ==========================================================================
+   BitcoinVN skin
+   ========================================================================== */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Lato');
+$sans-serif: "Lato";
+$header-font-family: "Lato";
+$global-font-family: "Lato";
+$caption-font-family: "Lato";
+
+/* Colors */
+$background-color: #061C34 !default;
+$text-color: white !default;
+$muted-text-color: white !default;
+$primary-color: #0B1F33 !default;
+$secondary-color: #FFE26E !default;
+$border-color: #0B1F33 !default;
+$footer-background-color: #0B1F33 !default;
+$link-color: $secondary-color !default;
+$link-color-hover: mix(#ffd942, $link-color, 75%) !default;
+$masthead-link-color: $text-color !default;
+$masthead-link-color-hover: $secondary-color !default;
+$navicon-link-color-hover: $link-color-hover ;
+$background: radial-gradient(circle at 10% 20%, #0B1F33 0%, #213E56 90.2%) !default;
+$site-title-color: $secondary-color;
+
+.page__footer {
+  color: #fff !important; // override
+}
+
+.page__footer-follow .social-icons .svg-inline--fa {
+  color: inherit;
+}
