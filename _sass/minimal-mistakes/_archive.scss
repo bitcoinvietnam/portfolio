@@ -244,7 +244,10 @@
    ========================================================================== */
 
 .feature__wrapper {
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
 
   @include clearfix();
   margin-bottom: 2em;
