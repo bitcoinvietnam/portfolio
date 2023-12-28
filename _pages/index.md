@@ -4,7 +4,7 @@ permalink: /
 hidden: false
 feature_row:
   - image_path: /assets/images/neutronpay-screenshot.jpg
-    alt: ""
+    alt: "Neutronpay.com"
     title: "<a href='https://neutronpay.com' target='_blank' style='text-decoration: none'>Neutronpay</a>"
     excerpt: "Lightning Network Infrastructure for Global Payments, Spending, Remittances, Payouts.
     <br><br>Why did we invest into Neutronpay?
