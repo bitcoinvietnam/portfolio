@@ -16,8 +16,8 @@
 title: BitcoinVN Portfolio
 subtitle: Investments and Allocations
 email: portfolio@bitcoinvn.vo
-description: >- # this means to ignore newlines until "baseurl:"
-  Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet,
+description: >- # this means to ignore newlines until next property
+  BitcoinVN Portfolio - Investments and Asset Allocations
 url: https://bitcoinvn.io
 baseurl: /portfolio
 twitter_username: bitcoin_vietnam
