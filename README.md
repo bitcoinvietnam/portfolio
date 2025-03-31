@@ -1,4 +1,66 @@
-# Minimal Mistakes remote theme starter
+## Preview a Jekyll site locally:
+
+### **1. Install Jekyll and Bundler**
+
+If you haven't installed Jekyll yet, run the following command (ensure you have Ruby installed):
+
+```sh
+gem install jekyll bundler
+```
+
+### **2. Navigate to Your Jekyll Project**
+
+Go to the directory where your Jekyll site is located:
+
+```sh
+cd /path/to/your-jekyll-site
+```
+
+### **3. Install Dependencies**
+
+If your project has a `Gemfile`, install the required dependencies:
+
+```sh
+bundle install
+```
+
+### **4. Build and Serve the Site**
+
+Run the following command to build and preview the site locally:
+
+```sh
+bundle exec jekyll serve
+```
+
+or (if you installed Jekyll globally without Bundler):
+
+```sh
+jekyll serve
+```
+
+### **5. Open in Browser**
+
+Once the server starts, open your browser and go to:
+
+```
+http://127.0.0.1:4000
+```
+
+By default, Jekyll serves on port `4000`, but you can specify another port if needed:
+
+```sh
+bundle exec jekyll serve --port 5000
+```
+
+### **6. Enable Live Reload (Optional)**
+
+To automatically refresh the page when you edit files:
+
+```sh
+bundle exec jekyll serve --livereload
+```
+
+## Minimal Mistakes remote theme starter
 
 Click [**Use this template**](https://github.com/mmistakes/mm-github-pages-starter/generate) button above for the quickest method of getting started with the [Minimal Mistakes Jekyll theme](https://github.com/mmistakes/minimal-mistakes).
 
