@@ -29,11 +29,22 @@
   a[rel="permalink"] {
     position: static;
   }
+}
 
-  @include breakpoint($medium) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.feature__wrapper {
+  .archive__item {
+    @include breakpoint($medium) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+.page__related {
+  .grid__item  {
+    @include breakpoint($medium) {
+      width: span(5 of 12);
+    }
   }
 }
 
