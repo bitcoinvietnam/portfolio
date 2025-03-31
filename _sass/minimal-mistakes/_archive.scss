@@ -29,6 +29,12 @@
   a[rel="permalink"] {
     position: static;
   }
+
+  @include breakpoint($medium) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .archive__subtitle {
@@ -90,6 +96,7 @@
   position: relative;
   border-radius: 12px;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
 
   img {
     border: none;
@@ -244,10 +251,10 @@
    ========================================================================== */
 
 .feature__wrapper {
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: auto;
 
   @include clearfix();
   margin-bottom: 2em;
@@ -289,7 +296,7 @@
     }
   }
 
-  .archive__item-body {
+  .archive__item-body {  
     padding-left: gutter(1 of 12);
     padding-right: gutter(1 of 12);
   }
