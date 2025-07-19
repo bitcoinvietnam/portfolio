@@ -22,7 +22,7 @@ feature_row:
   - image_path: /assets/images/bitcoinvn-invest-in-blink.webp
     alt: "Blink Wallet"
     title: "<a href='https://www.blink.sv' target='_blank' style='text-decoration: none'>Blink Wallet</a>"
-    excerpt: "A pioneer in Lightning adoption since the early days of Bitcoin in El Salvador – and continues to serve as the go-to wallet for grassroots circular economies across Latin America."
+    excerpt: "A pioneer in Lightning adoption since the early days of Bitcoin in El Salvador – and continues to serve as the go-to wallet for grassroots circular economies across Latin America & Africa."
     url: "/bitcoinvn-invests-in-blink-wallet" 
     btn_class: "btn--primary"
     btn_label: "Learn More"    
