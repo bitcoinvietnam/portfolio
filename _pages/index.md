@@ -26,6 +26,13 @@ feature_row:
     url: "/bitcoinvn-invests-in-blink-wallet" 
     btn_class: "btn--primary"
     btn_label: "Learn More"    
+  - image_path: /assets/images/satsback.jpg
+    alt: "Satsback"
+    title: "<a href='https://satsback.com' target='_blank' style='text-decoration: none'>Satsback</a>"
+    excerpt: "Satsback builds the incentive layer for Lightning payments. It enables merchants to reduce payment friction while allowing consumers to earn Bitcoin as they spend."
+    url: "/satsback-incentive-layer-bitcoin-payment" 
+    btn_class: "btn--primary"
+    btn_label: "Learn More"    
 ---
 
 {% include feature_row type="left" %}
