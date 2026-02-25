@@ -297,8 +297,14 @@ a {
 }
 
 .sidebar .author__urls-wrapper a {
-  color: rgba(255, 226, 110, 0.65);
+  color: rgba(255, 255, 255, 0.65);
   &:hover { color: #FFE26E; }
+}
+
+.sidebar .author__urls.social-icons .fab,
+.sidebar .author__urls.social-icons .fas,
+.sidebar .author__urls.social-icons .far {
+  color: inherit;
 }
 
 .sidebar .author__urls-wrapper .btn {
