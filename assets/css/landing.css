@@ -736,6 +736,8 @@ body.layout--landing .initial-content {
 /* =====================================================================
    9. RESPONSIVE
    ===================================================================== */
+
+/* --- Tablet (max 860px) ---------------------------------------------- */
 @media (max-width: 860px) {
   .lp-grid {
     grid-template-columns: 1fr;
@@ -749,35 +751,186 @@ body.layout--landing .initial-content {
   }
 
   .lp-card--4 .lp-card__left { max-width: none; }
-}
 
-@media (max-width: 860px) {
   .lp-stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* --- Mobile (max 600px) ---------------------------------------------- */
 @media (max-width: 600px) {
+
+  /* Hero */
+  .lp-hero {
+    min-height: 88vh;
+    padding: 2rem 1.2rem 1.5rem;
+  }
+
+  .lp-hero__h1 {
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
+    margin-bottom: 0.8rem;
+  }
+
+  .lp-hero__sub {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    max-width: 100%;
+    margin-bottom: 1.8rem;
+  }
+
+  .lp-badge {
+    font-size: 0.65rem;
+    padding: 0.4em 1.2em;
+    margin-bottom: 1.2rem;
+  }
+
+  .lp-btn {
+    font-size: 0.82rem;
+    padding: 0.65em 1.5em;
+    width: 100%;
+    text-align: center;
+  }
+
+  .lp-hero__cta {
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .lp-scroll {
+    font-size: 0.55rem;
+  }
+
+  .lp-btc-mark--2 { display: none; }
+
+  /* Stats section */
+  .lp-stats-section {
+    padding: 2rem 1.2rem 1.5rem;
+  }
+
   .lp-stats-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 0.7rem;
   }
 
-  .lp-stat-card__val {
-    font-size: 1.6rem;
+  .lp-stat-card {
+    padding: 1.2rem 0.8rem 1rem;
   }
 
+  .lp-stat-card__icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .lp-stat-card__val {
+    font-size: 1.8rem;
+  }
+
+  .lp-stat-card__label {
+    font-size: 0.55rem;
+  }
+
+  /* Section headings */
+  .lp-eyebrow {
+    font-size: 0.62rem;
+  }
+
+  .lp-heading {
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+  }
+
+  .lp-subdesc {
+    font-size: 0.88rem;
+    max-width: 100%;
+  }
+
+  /* Portfolio section */
+  .lp-portfolio {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  /* Cards */
+  .lp-card__body {
+    padding: 1rem 1rem 1rem;
+  }
+
+  .lp-card__name {
+    font-size: 1rem;
+  }
+
+  .lp-card--1 .lp-card__name {
+    font-size: 1.15rem;
+  }
+
+  .lp-card__sub {
+    font-size: 0.75rem;
+  }
+
+  .lp-card__text {
+    font-size: 0.82rem;
+    line-height: 1.65;
+  }
+
+  .lp-card__date {
+    font-size: 0.68rem;
+  }
+
+  .lp-card__go {
+    font-size: 0.75rem;
+  }
+
+  .lp-tag {
+    font-size: 0.6rem;
+    padding: 0.25em 0.7em;
+  }
+
+  .lp-pill {
+    font-size: 0.58rem;
+  }
+
+  .lp-card__num {
+    font-size: 5rem;
+  }
+
+  /* Thumbnails */
+  .lp-card__thumb {
+    width: 56px;
+    height: 56px;
+  }
+
+  .lp-card__thumb--sm {
+    width: 46px;
+    height: 46px;
+  }
+
+  .lp-card--1 .lp-card__thumb {
+    width: 64px;
+    height: 64px;
+  }
+
+  /* Banner */
   .lp-banner {
     padding: 2rem 1.2rem;
     margin-left: 0.8rem;
     margin-right: 0.8rem;
+    border-radius: 12px;
   }
 
-  .lp-portfolio { padding: 2rem 0.8rem 1.5rem; }
+  .lp-banner__h2 {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+  }
 
-  .lp-btc-mark--2 { display: none; }
+  .lp-banner__p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
 
-  .lp-hero { min-height: 85vh; }
+  .lp-banner__btc {
+    font-size: 8rem;
+  }
 }
 
 /* =====================================================================

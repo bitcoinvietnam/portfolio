@@ -429,8 +429,128 @@ code {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+  /* --- Masthead mobile ------------------------------------------------ */
+  .masthead {
+    padding-top: 0.2rem !important;
+    padding-bottom: 0.2rem !important;
+  }
+
+  .site-title {
+    font-size: 0.92rem !important;
+  }
+
+  .site-subtitle {
+    font-size: 0.55rem !important;
+  }
+
+  .site-logo img {
+    max-height: 1.1rem !important;
+  }
+
+  /* --- Page content mobile ------------------------------------------- */
+  .page {
+    padding: 1.2rem;
+    border-radius: 10px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .page__content {
+    p,
+    li {
+      font-size: 1rem;
+      line-height: 1.78;
+    }
+
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.3rem; }
+    h3 { font-size: 1.1rem; }
+
+    blockquote {
+      font-size: 0.98rem;
+      padding-left: 0.8rem;
+    }
+  }
+
+  .page__title {
+    font-size: 1.5rem !important;
+  }
+
+  /* --- Sidebar mobile ------------------------------------------------ */
+  .sidebar .author__name {
+    font-size: 1rem;
+  }
+
+  .sidebar .author__bio {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .sidebar .author__urls-wrapper a {
+    font-size: 0.82rem;
+  }
+
+  /* --- Footer mobile ------------------------------------------------- */
+  .page__footer {
+    margin-top: 2rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+
+  .footer__inner {
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .footer__name {
+    font-size: 0.88rem;
+  }
+
+  .footer__links {
+    gap: 1.2rem;
+
+    a {
+      font-size: 0.78rem;
+    }
+  }
+
+  .footer__copy {
+    font-size: 0.6rem;
+  }
+
+  /* --- Related posts mobile ----------------------------------------- */
   .related-row {
     grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .related-card {
+    padding: 0.8rem 1rem;
+  }
+
+  .related-card__title {
+    font-size: 0.88rem;
+    -webkit-line-clamp: 3;
+  }
+
+  .related-card__date {
+    font-size: 0.65rem;
+  }
+
+  .page__related-title {
+    font-size: 1rem !important;
+  }
+
+  /* --- Breadcrumbs mobile ------------------------------------------- */
+  .breadcrumbs {
+    font-size: 0.72rem;
+    padding: 0.4rem 0;
+  }
+
+  /* --- Pagination mobile -------------------------------------------- */
+  .pagination--pager {
+    font-size: 0.82rem;
+    padding: 0.5em 1em;
   }
 }
