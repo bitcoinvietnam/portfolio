@@ -1,5 +1,6 @@
 ---
 title: "Why we invested into Neutronpay"
+image: /assets/images/neutronpay.png
 categories:
 tags:
 ---
@@ -29,7 +30,7 @@ If you want to make the right choices in life - \*you\* must feel it and be conf
 
 So much for our general background - but why now Neutronpay of all things? Some obscure “crypto payment processor” with Canadian-Vietnamese roots? Haven’t Crypto Payments been proven to be not a really strong use case in the past & everybody is just out to speculate on random casino tokens?
 
-First of all, we have known, observed, cooperated, talked and built stuff with the [Founder Albert](https://www.twitter.com/subnetmask) since about two years. This was for us a sufficient time to build the trust needed to take our cooperation a step further. We strongly prefer to work with people who do \*not\* give us any red flags and who work with a long-term vision in mind.
+First of all, we have known, observed, cooperated, talked and built stuff with the [Founder Albert](https://x.com/subnetmask) since about two years. This was for us a sufficient time to build the trust needed to take our cooperation a step further. We strongly prefer to work with people who do \*not\* give us any red flags and who work with a long-term vision in mind.
 
 Who are able to do solid groundwork, who know what it takes to build a company with little means and are okay with doing humble, but highly focused work. Who are looking to avoid the “quick opportunities” which end up compromising and diverging you from your true goals and pathway. Who are looking to make decisions and build a company and network of partners which will compound over the years to come.
 
@@ -50,7 +51,7 @@ It is a topic I hopefully will find the time to expand upon with a separate blog
 
 Bitcoiners who put their own money on the line, their own skin in the game - and who are in it for the cause and for the long-term, rather to fulfil some “investment mandate” with other people’s money. Get people on your team and on your board who strengthen your team - rather than weaken and distract from its original vision.
 
-It’s the amount of hours logged in [Bitcointalk](https://bitcointalk.org/) & [Bitcoin Stack Exchange](https://bitcoin.stackexchange.com/) and the amount of Satoshis stacked - rather than some “titles” & “credentials” from “reputable institutions” from a group of people who is mainly where they are due to their loyal service to the Cantillon Insider Club. _Source:_  [_https://twitter.com/nwoodfine/status/1359253163946172424_](https://twitter.com/nwoodfine/status/1359253163946172424)
+It’s the amount of hours logged in [Bitcointalk](https://bitcointalk.org/) & [Bitcoin Stack Exchange](https://bitcoin.stackexchange.com/) and the amount of Satoshis stacked - rather than some “titles” & “credentials” from “reputable institutions” from a group of people who is mainly where they are due to their loyal service to the Cantillon Insider Club. _Source:_  [_https://x.com/nwoodfine/status/1359253163946172424_](https://x.com/nwoodfine/status/1359253163946172424)
 
 **The business case - Bitcoin, Scaling and the Lightning Network**
 ------------------------------------------------------------------
@@ -72,7 +73,7 @@ We believe that Neutronpay with its practical expertise built up over the past t
 
 We have been in a place ourselves many years ago where we had to suffer for the first couple of years bootstrapping our company from literally less than nothing. It’s time for us to give something back to fellow Bitcoin entrepreneurs - and we believe that Albert and his team at Neutronpay are therefore a good bet. To hear more from us, you can follow us here:
 
-*   [Bitcoin Vietnam](https://www.twitter.com/Bitcoin_Vietnam)
-*   [Neutronpay](https://www.twitter.com/neutronpay)
-*   [Albert Buu](https://twitter.com/subnetmask)
-*   [Dominik Weil](https://www.twitter.com/dominikweil)
+*   [Bitcoin Vietnam](https://x.com/Bitcoin_Vietnam)
+*   [Neutronpay](https://x.com/neutronpay)
+*   [Albert Buu](https://x.com/subnetmask)
+*   [Dominik Weil](https://x.com/dominikweil)

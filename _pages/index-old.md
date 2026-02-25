@@ -1,6 +1,6 @@
 ---
 layout: splash
-permalink: /
+permalink: /old-home
 hidden: false
 feature_row:
   - image_path: /assets/images/neutronpay-screenshot.jpg

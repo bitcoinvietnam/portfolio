@@ -1,7 +1,258 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-layout: home
-author_profile: true
+layout: landing
 ---
+
+<!-- =============  HERO  ============= -->
+<section class="lp-hero">
+
+  <!-- BG: floating particles -->
+  <div class="lp-particles" aria-hidden="true">
+    <i></i><i></i><i></i><i></i><i></i><i></i>
+    <i></i><i></i><i></i><i></i><i></i><i></i>
+  </div>
+
+  <!-- BG: grid overlay -->
+  <div class="lp-grid-bg"></div>
+
+  <!-- BG: ₿ watermarks -->
+  <div class="lp-btc-mark lp-btc-mark--1" aria-hidden="true">&#8383;</div>
+  <div class="lp-btc-mark lp-btc-mark--2" aria-hidden="true">&#8383;</div>
+
+  <!-- BG: bottom fade -->
+  <div class="lp-hero-fade"></div>
+
+  <!-- Content -->
+  <div class="lp-hero__inner">
+    <span class="lp-badge">
+      <span class="lp-badge__dot"></span>
+      Since 2014 &middot; Vietnam
+    </span>
+
+    <h1 class="lp-hero__h1">
+      Building the<br><span class="lp-gtext">Bitcoin Economy</span>
+    </h1>
+
+    <p class="lp-hero__sub">
+      BitcoinVN backs Bitcoin builders &mdash; operators, founders,
+      and infrastructure teams constructing the financial rails of tomorrow.
+    </p>
+
+    <div class="lp-hero__cta">
+      <a href="#investments" class="lp-btn lp-btn--gold">View Portfolio &darr;</a>
+      <a href="https://bitcoinvn.io" class="lp-btn lp-btn--outline" target="_blank" rel="noopener">Visit BitcoinVN &rarr;</a>
+    </div>
+  </div>
+
+  <div class="lp-scroll" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    <span>scroll</span>
+  </div>
+</section>
+
+<!-- =============  STATS  ============= -->
+<section class="lp-stats-section lp-fadein" id="lp-stats">
+  <span class="lp-eyebrow">Track Record</span>
+  <h2 class="lp-heading">Our Numbers Speak</h2>
+
+  <div class="lp-stats-grid">
+    <div class="lp-stat-card">
+      <div class="lp-stat-card__icon"><i class="fas fa-clock"></i></div>
+      <span class="lp-stat-card__val lp-gtext" data-count="12" data-suffix="+">0</span>
+      <span class="lp-stat-card__label">Years Operating</span>
+      <div class="lp-stat-card__bar"></div>
+    </div>
+    <div class="lp-stat-card">
+      <div class="lp-stat-card__icon"><i class="fas fa-building"></i></div>
+      <span class="lp-stat-card__val lp-gtext" data-count="{{ site.posts | size }}">0</span>
+      <span class="lp-stat-card__label">Portfolio Companies</span>
+      <div class="lp-stat-card__bar" style="--bar-accent: linear-gradient(90deg, #8B5CF6, #C084FC);"></div>
+    </div>
+    <div class="lp-stat-card">
+      <div class="lp-stat-card__icon"><i class="fas fa-globe-americas"></i></div>
+      <span class="lp-stat-card__val lp-gtext" data-count="3">0</span>
+      <span class="lp-stat-card__label">Continents</span>
+      <div class="lp-stat-card__bar" style="--bar-accent: linear-gradient(90deg, #06B6D4, #3B82F6);"></div>
+    </div>
+    <div class="lp-stat-card">
+      <div class="lp-stat-card__icon"><i class="fab fa-bitcoin"></i></div>
+      <span class="lp-stat-card__val lp-gtext" data-symbol="&#8734;">&#8734;</span>
+      <span class="lp-stat-card__label">Bitcoin Conviction</span>
+      <div class="lp-stat-card__bar" style="--bar-accent: linear-gradient(90deg, #10B981, #34D399);"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =============  PORTFOLIO  ============= -->
+<section class="lp-portfolio lp-fadein" id="investments">
+  <span class="lp-eyebrow">Portfolio</span>
+  <h2 class="lp-heading">Our Investments</h2>
+  <p class="lp-subdesc">
+    Backing proven Bitcoin builders with long-term conviction and skin in the game.
+  </p>
+
+  {% assign accents = "linear-gradient(90deg,#F7931A,#FFE26E)|linear-gradient(90deg,#8B5CF6,#C084FC)|linear-gradient(90deg,#06B6D4,#3B82F6)|linear-gradient(90deg,#10B981,#34D399)" | split: "|" %}
+  {% assign colors  = "#F7931A|#C084FC|#38BDF8|#34D399"   | split: "|" %}
+  {% assign glows   = "rgba(247,147,26,0.16)|rgba(139,92,246,0.16)|rgba(6,182,212,0.14)|rgba(16,185,129,0.14)" | split: "|" %}
+  {% assign nums    = "01|02|03|04" | split: "|" %}
+
+  <div class="lp-grid">
+  {% for post in site.posts %}
+    {% assign i = forloop.index0 %}
+
+    {% comment %} Clean title {% endcomment %}
+    {% assign t = post.title
+      | remove: "BitcoinVN Investment disclosure: "
+      | remove: "BitcoinVN – Investment disclosure "
+      | remove: "BitcoinVN invests in "
+      | remove: "Why we invested into " %}
+
+    {% assign parts_em  = t | split: " – " %}
+    {% assign parts_reg = t | split: " - " %}
+    {% if parts_em.size > 1 %}
+      {% assign company  = parts_em[0] %}
+      {% assign subtitle = parts_em[1] %}
+    {% elsif parts_reg.size > 1 %}
+      {% assign company  = parts_reg[0] %}
+      {% assign subtitle = parts_reg[1] %}
+    {% else %}
+      {% assign company  = t %}
+      {% assign subtitle = "" %}
+    {% endif %}
+
+    {% assign excerpt = post.content | strip_html | strip_newlines | truncatewords: 30 %}
+
+    <a href="{{ post.url | relative_url }}"
+       class="lp-card lp-card--{{ forloop.index }}"
+       style="--card-accent:{{ accents[i] }};--card-color:{{ colors[i] }};--card-glow:{{ glows[i] }};">
+
+      <div class="lp-card__bar"></div>
+
+      {% if forloop.first %}
+      <!-- Featured header zone -->
+      <div class="lp-card__zone">
+        <span class="lp-pill lp-pill--orange">Latest Investment</span>
+        <span class="lp-card__date">{{ post.date | date: "%b %Y" }}</span>
+      </div>
+      {% endif %}
+
+      <div class="lp-card__body">
+        <div class="lp-card__left">
+          {% if forloop.first %}
+            {% if post.image %}
+              <div class="lp-card__thumb"><img src="{{ post.image | relative_url }}" alt="{{ company }}"></div>
+            {% endif %}
+          {% else %}
+            <div class="lp-card__row">
+              {% if post.image %}
+                <div class="lp-card__thumb lp-card__thumb--sm"><img src="{{ post.image | relative_url }}" alt="{{ company }}"></div>
+              {% endif %}
+              <span class="lp-card__date">{{ post.date | date: "%b %Y" }}</span>
+            </div>
+          {% endif %}
+
+          <div class="lp-card__name">{{ company }}</div>
+          {% if subtitle != "" %}
+            <div class="lp-card__sub">{{ subtitle }}</div>
+          {% endif %}
+
+          {% if forloop.index == 4 %}
+          <div class="lp-tags" style="margin-top:0.7rem;">
+            <span class="lp-tag">Bitcoin</span>
+            <span class="lp-tag">Lightning</span>
+            <span class="lp-tag">Vietnam</span>
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="lp-card__right">
+          <p class="lp-card__text">{{ excerpt }}</p>
+
+          <div class="lp-card__foot">
+            {% if forloop.index != 4 %}
+            <div class="lp-tags">
+              <span class="lp-tag">Bitcoin</span>
+              {% if post.title contains "Lightning" or post.title contains "Blink" or post.title contains "Neutron" %}
+                <span class="lp-tag">Lightning</span>
+              {% endif %}
+              {% if post.title contains "Satsback" %}<span class="lp-tag">Payments</span><span class="lp-tag">Europe</span>{% endif %}
+              {% if post.title contains "Storage"  %}<span class="lp-tag">Vietnam</span>{% endif %}
+              {% if post.title contains "Blink"    %}<span class="lp-tag">El Salvador</span>{% endif %}
+            </div>
+            {% else %}<div></div>{% endif %}
+            <span class="lp-card__go">Read &rarr;</span>
+          </div>
+        </div>
+      </div>
+
+      <span class="lp-card__num" aria-hidden="true">{{ nums[i] }}</span>
+    </a>
+  {% endfor %}
+  </div>
+</section>
+
+<!-- =============  BANNER  ============= -->
+<div class="lp-banner lp-fadein">
+  <span class="lp-banner__btc" aria-hidden="true">&#8383;</span>
+  <div class="lp-banner__inner">
+    <h2 class="lp-banner__h2">Investing on a Bitcoin Standard</h2>
+    <p class="lp-banner__p">
+      We are operators and technologists &mdash; not marketers. We back founders
+      with conviction and persistence who are building infrastructure to last
+      decades, not narratives to sell next quarter.
+    </p>
+    <a href="{{ '/about' | relative_url }}" class="lp-btn lp-btn--gold">Learn more about BitcoinVN &rarr;</a>
+  </div>
+</div>
+
+<!-- =============  SCROLL ANIMATIONS JS  ============= -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  /* --- Fade-in on scroll (IntersectionObserver) --- */
+  var fadeEls = document.querySelectorAll('.lp-fadein, .lp-stats-grid, .lp-grid');
+  var fadeObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        fadeObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  fadeEls.forEach(function (el) { fadeObs.observe(el); });
+
+  /* --- Count-up animation for stats --- */
+  var counted = false;
+  var statsSection = document.getElementById('lp-stats');
+  if (!statsSection) return;
+
+  var countObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting && !counted) {
+        counted = true;
+        countObs.unobserve(statsSection);
+        animateCounts();
+      }
+    });
+  }, { threshold: 0.3 });
+  countObs.observe(statsSection);
+
+  function animateCounts() {
+    var counters = statsSection.querySelectorAll('[data-count]');
+    counters.forEach(function (el) {
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var suffix = el.getAttribute('data-suffix') || '';
+      var duration = 1600;
+      var start = performance.now();
+
+      function step(now) {
+        var elapsed = now - start;
+        var progress = Math.min(elapsed / duration, 1);
+        var ease = 1 - Math.pow(1 - progress, 3);
+        var current = Math.round(ease * target);
+        el.textContent = current + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+});
+</script>

@@ -2,34 +2,435 @@
    BitcoinVN skin
    ========================================================================== */
 
-/* Fonts */
-@import url('https://fonts.googleapis.com/css?family=Lato');
-$sans-serif: "Lato";
-$header-font-family: "Lato";
-$global-font-family: "Lato";
-$caption-font-family: "Lato";
+/* Fonts
+   ── DM Serif Display : headings, titles  (elegant serif, financial authority)
+   ── DM Sans          : body, UI, nav     (clean geometric, pairs with DM Serif)
+   ────────────────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=DM+Serif+Display:ital@0;1&display=swap');
 
-/* Colors */
-$background-color: #061C34 !default;
-$text-color: white !default;
-$muted-text-color: white !default;
-$primary-color: #0B1F33 !default;
+$sans-serif: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+$serif: "DM Serif Display", Georgia, serif;
+$header-font-family: "DM Serif Display", Georgia, serif;
+$global-font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+$caption-font-family: "DM Sans", sans-serif;
+
+/* Colors — matched to the landing page palette */
+$background-color: #060C1B !default;
+$text-color: #E8EDF5 !default;
+$muted-text-color: rgba(232, 237, 245, 0.65) !default;
+$primary-color: #080F20 !default;
 $secondary-color: #FFE26E !default;
-$border-color: #0B1F33 !default;
-$footer-background-color: #0B1F33 !default;
+$border-color: rgba(255, 226, 110, 0.1) !default;
+$footer-background-color: #050A18 !default;
 $link-color: $secondary-color !default;
-$link-color-hover: mix(#ffd942, $link-color, 75%) !default;
+$link-color-hover: #F7931A !default;
 $masthead-link-color: $text-color !default;
 $masthead-link-color-hover: $secondary-color !default;
-$navicon-link-color-hover: $link-color-hover ;
-$background: radial-gradient(circle at 10% 20%, #0B1F33 0%, #213E56 90.2%) !default;
-$line-break-background: radial-gradient(circle at 10% 20%, #213E56 0%, #0B1F33 90.2%) !default;
+$navicon-link-color-hover: $link-color-hover;
+$background: #060C1B !default;
+$line-break-background: linear-gradient(90deg, rgba(255,226,110,0.08), transparent) !default;
 $site-title-color: $secondary-color;
 
+/* --- Global mesh background on <body> ------------------------------- */
+body {
+  background-color: #060C1B;
+  background-image:
+    radial-gradient(ellipse 70% 50% at 15% 20%, rgba(247,147,26,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 45% at 85% 70%, rgba(139,92,246,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 90%, rgba(6,182,212,0.06) 0%, transparent 55%);
+  background-attachment: fixed;
+}
+
+/* --- Masthead — compact sticky frosted glass ----------------------- */
+.masthead {
+  position: sticky !important;
+  top: 0;
+  z-index: 1000;
+  background: rgba(6, 12, 27, 0.85) !important;
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border-bottom: 1px solid rgba(255, 226, 110, 0.08) !important;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.5);
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.masthead__inner-wrap {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* --- Logo + title — tight cohesive block like bitcoinvn.io ---------- */
+.site-logo {
+  margin-right: -0.1rem !important;
+  padding-right: 0 !important;
+}
+
+.site-logo img {
+  max-height: 1.3rem !important;
+  width: auto;
+  filter: drop-shadow(0 0 5px rgba(255, 226, 110, 0.25));
+  vertical-align: middle;
+}
+
+.site-title {
+  font-family: "DM Sans", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #fff !important;
+  letter-spacing: 0.01em;
+  text-shadow: none;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.25em;
+  line-height: 1 !important;
+  flex-wrap: nowrap;
+}
+
+.site-subtitle {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 0.62rem !important;
+  font-weight: 600 !important;
+  color: rgba(255, 226, 110, 0.6) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  display: inline !important;
+  width: auto;
+  background: linear-gradient(95deg, #FFE26E 10%, #F7931A 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Nav links ------------------------------------------------------ */
+.greedy-nav {
+  min-height: 2.2rem !important;
+}
+
+.greedy-nav a {
+  font-family: "DM Sans", sans-serif;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 0.78rem !important;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 0.35rem 0.6rem !important;
+  transition: color 0.25s ease;
+}
+
+.greedy-nav a:hover {
+  background: linear-gradient(95deg, #FFE26E 0%, #F7931A 45%, #FF6B35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: brightness(1.15);
+}
+
+.greedy-nav .visible-links a {
+  position: relative;
+}
+
+.greedy-nav .visible-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #FFE26E, #F7931A, #FF6B35);
+  border-radius: 2px;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.greedy-nav .visible-links a:hover::after {
+  width: 80%;
+  left: 10%;
+}
+
+.greedy-nav .visible-links a::before {
+  background: #F7931A;
+}
+
+.greedy-nav .search__toggle {
+  color: rgba(255, 255, 255, 0.45);
+  &:hover { color: #FFE26E; }
+}
+
+/* --- Global hover effects — match dark theme ----------------------- */
+a {
+  color: $secondary-color;
+  transition: color 0.2s ease;
+  &:hover,
+  &:focus {
+    color: #F7931A;
+  }
+}
+
+.btn,
+.btn--primary {
+  font-family: "DM Sans", sans-serif;
+  background-color: rgba(255, 226, 110, 0.12) !important;
+  border: 1px solid rgba(255, 226, 110, 0.25) !important;
+  color: #FFE26E !important;
+  transition: all 0.25s ease;
+  &:hover {
+    background-color: rgba(255, 226, 110, 0.22) !important;
+    border-color: rgba(255, 226, 110, 0.4) !important;
+    color: #fff !important;
+  }
+}
+
+/* Pagination */
+.pagination--pager {
+  background-color: rgba(255, 226, 110, 0.08);
+  border: 1px solid rgba(255, 226, 110, 0.15);
+  color: rgba(255, 226, 110, 0.7);
+  &:hover {
+    background-color: rgba(255, 226, 110, 0.18);
+    color: #FFE26E;
+  }
+}
+
+/* Archive / list items */
+.archive__item-title {
+  font-family: "DM Serif Display", Georgia, serif;
+}
+
+.archive__item-title a {
+  color: #E8EDF5 !important;
+  &:hover { color: #FFE26E !important; }
+}
+
+.archive__item-excerpt {
+  color: rgba(232, 237, 245, 0.55);
+}
+
+/* Taxonomy / tags / categories */
+.taxonomy__index a,
+.tag-cloud a {
+  color: rgba(255, 226, 110, 0.7) !important;
+  &:hover { color: #FFE26E !important; }
+}
+
+/* Table of contents */
+.toc a {
+  color: rgba(232, 237, 245, 0.6);
+  &:hover { color: #FFE26E; }
+}
+
+.toc {
+  background: rgba(10, 18, 35, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+}
+
+/* Nav buttons / toggles */
+.nav__items a {
+  color: rgba(232, 237, 245, 0.7);
+  &:hover {
+    color: #FFE26E;
+    background: rgba(255, 226, 110, 0.06);
+  }
+}
+
+/* Search */
+.search-content .search-input {
+  background: rgba(10, 18, 35, 0.8);
+  color: #E8EDF5;
+  border-bottom-color: rgba(255, 226, 110, 0.2);
+}
+
+/* --- Footer --------------------------------------------------------- */
 .page__footer {
-  color: #fff !important; // override
+  background: #050A18 !important;
+  border-top: 1px solid rgba(255, 226, 110, 0.08);
+  color: rgba(255, 255, 255, 0.4) !important;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.page__footer a,
+.page__footer-follow a {
+  color: rgba(255, 226, 110, 0.55) !important;
+  transition: color 0.2s;
+  &:hover { color: #FFE26E !important; }
 }
 
 .page__footer-follow .social-icons .svg-inline--fa {
-  color: inherit;
+  color: rgba(255, 226, 110, 0.45);
+}
+
+/* --- Breadcrumbs ---------------------------------------------------- */
+.breadcrumbs {
+  ol {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  a {
+    color: rgba(255, 226, 110, 0.55);
+    &:hover { color: #FFE26E; }
+  }
+}
+
+/* --- Page content area — subtle glass panel ------------------------- */
+.page {
+  background: rgba(10, 18, 35, 0.4);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2em;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* --- Sidebar (author profile) --------------------------------------- */
+.sidebar .author__avatar img {
+  border: 2px solid rgba(255, 226, 110, 0.2);
+}
+
+.sidebar .author__name {
+  font-family: "DM Sans", sans-serif;
+  color: #fff;
+  font-weight: 700;
+}
+
+.sidebar .author__bio {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.sidebar .author__urls-wrapper a {
+  color: rgba(255, 226, 110, 0.65);
+  &:hover { color: #FFE26E; }
+}
+
+.sidebar .author__urls-wrapper .btn {
+  background-color: rgba(255, 226, 110, 0.1);
+  border: 1px solid rgba(255, 226, 110, 0.2);
+  color: #FFE26E;
+}
+
+/* --- Typography — article / blog content ----------------------------- */
+.page__content {
+  p,
+  li {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.98rem;
+    line-height: 1.82;
+    font-weight: 400;
+    color: rgba(232, 237, 245, 0.82);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "DM Serif Display", Georgia, serif;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+
+  h1 { font-weight: 400; }
+  h2 { font-weight: 400; }
+  h3 { font-weight: 400; }
+
+  blockquote {
+    font-family: "DM Serif Display", Georgia, serif;
+    border-left-color: rgba(255, 226, 110, 0.3);
+    font-style: italic;
+    color: rgba(232, 237, 245, 0.65);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  strong {
+    color: #E8EDF5;
+    font-weight: 600;
+  }
+
+  em {
+    color: rgba(232, 237, 245, 0.72);
+  }
+}
+
+/* --- Code blocks ---------------------------------------------------- */
+div.highlighter-rouge,
+figure.highlight {
+  background: rgba(10, 18, 35, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+}
+
+code {
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  background: rgba(255, 226, 110, 0.08);
+  color: #FFE26E;
+  border-radius: 3px;
+  font-size: 0.88em;
+}
+
+/* --- Related posts — compact single-row cards -------------------------- */
+.page__related {
+  margin-top: 2.5rem;
+}
+
+.page__related-title {
+  font-family: "DM Serif Display", Georgia, serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 400 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  margin-bottom: 1rem !important;
+}
+
+.related-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+}
+
+.related-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  background: rgba(10, 18, 35, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  text-decoration: none !important;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+.related-card:hover {
+  border-color: rgba(255, 226, 110, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.related-card__title {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #E8EDF5;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.related-card:hover .related-card__title {
+  color: #FFE26E;
+}
+
+.related-card__date {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 860px) {
+  .related-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .related-row {
+    grid-template-columns: 1fr;
+  }
 }

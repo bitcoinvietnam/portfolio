@@ -20,9 +20,9 @@
     @include clearfix;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2em;
+    margin-top: 0;
     max-width: 100%;
-    padding: 0 1em 2em;
+    padding: 0 1em 0;
 
     @include breakpoint($x-large) {
       max-width: $x-large;
@@ -34,58 +34,69 @@
     text-decoration: none;
 
     &:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
   }
-
-  .fas,
-  .fab,
-  .far,
-  .fal {
-    color: $muted-text-color;
-  }
 }
 
-.page__footer-copyright {
-  font-family: $global-font-family;
-  font-size: $type-size-7;
+/* --- New clean footer layout --- */
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  text-align: center;
 }
 
-.page__footer-copyright-powered-by {
-  font-family: $global-font-family;
-  font-size: $type-size-8;
-  color: $base02;
+.footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-.page__footer-follow {
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
+.footer__logo {
+  width: 20px;
+  height: 20px;
+  filter: drop-shadow(0 0 4px rgba(255, 226, 110, 0.2));
+}
 
-  li {
-    display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-family: $sans-serif-narrow;
-    font-size: $type-size-6;
-    text-transform: uppercase;
-  }
+.footer__name {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.01em;
+}
 
-  li+li:before {
-    content: "";
-    padding-right: 5px;
-  }
+.footer__links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 
   a {
-    padding-right: 10px;
-    font-weight: bold;
-  }
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.72rem;
+    color: rgba(255, 226, 110, 0.5) !important;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
 
-  .social-icons {
-    a {
-      white-space: nowrap;
+    &:hover {
+      color: #FFE26E !important;
     }
   }
+}
+
+.footer__bottom {
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  width: 100%;
+  text-align: center;
+}
+
+.footer__copy {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.04em;
 }

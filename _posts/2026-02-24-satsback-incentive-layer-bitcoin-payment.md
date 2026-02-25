@@ -1,5 +1,6 @@
 ---
 title: "BitcoinVN Investment disclosure: Satsback Labs – the incentive layer for Bitcoin payments"
+image: /assets/images/satsback.jpg
 categories:
 tags:
 ---

@@ -1,5 +1,6 @@
 ---
 title: "BitcoinVN – Investment disclosure Blink Wallet – El Salvador’s Leading Private Lightning Company"
+image: /assets/images/bitcoinvn-invest-in-blink.webp
 categories:
 tags:
 ---

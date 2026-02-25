@@ -1,4 +1,28 @@
 <!-- start custom head snippets -->
 <!-- Plausbile tracking script -->
 <script defer data-domain="bitcoinvn.io/portfolio" src="https://plausible.bitcoinvn.io/js/script.js"></script>
+<!-- Landing page stylesheet — only on the landing layout -->
+{% if page.layout == "landing" %}
+<link rel="stylesheet" href="{{ '/assets/css/landing.css' | relative_url }}">
+{% endif %}
+<!-- Open external links in new tab -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var base = '/portfolio/';
+  document.querySelectorAll('a[href]').forEach(function (a) {
+    var href = a.getAttribute('href');
+    if (!href) return;
+    // Skip anchors, relative paths, and internal /portfolio/ links
+    if (href.charAt(0) === '#') return;
+    if (href.charAt(0) === '/' && href.indexOf(base) === 0) return;
+    if (href.charAt(0) === '/' && href.indexOf(base) !== 0) return; // other absolute paths on same domain
+    if (href.indexOf('http') !== 0 && href.indexOf('//') !== 0) return; // relative links are internal
+    // Absolute URL — check if it points to our site
+    if (href.indexOf(location.origin + base) === 0) return;
+    // External link
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener');
+  });
+});
+</script>
 <!-- end custom head snippets -->
