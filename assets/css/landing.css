@@ -409,7 +409,7 @@ body.layout--landing .initial-content {
 }
 
 /* =====================================================================
-   6. INVESTMENT GRID  (asymmetric bento)
+   6. INVESTMENT GRID  (asymmetric bento — 5 cards)
    =====================================================================
    Desktop:
      +------------------+ +-----------+
@@ -417,9 +417,9 @@ body.layout--landing .initial-content {
      |  spans 2 rows    | +-----------+
      |                  | |     3     |
      +------------------+ +-----------+
-     +-----------------------------+
-     |         4  (wide)           |
-     +-----------------------------+
+     +------------------+ +-----------+
+     |        4         | |     5     |
+     +------------------+ +-----------+
    ===================================================================== */
 .lp-grid {
   display: grid;
@@ -428,7 +428,6 @@ body.layout--landing .initial-content {
 }
 
 .lp-card--1 { grid-row: span 2; }
-.lp-card--4 { grid-column: 1 / -1; }
 
 /* =====================================================================
    7. CARD
@@ -625,17 +624,8 @@ body.layout--landing .initial-content {
   flex: 1;
 }
 
-/* Wide card (card-4): horizontal body */
-.lp-card--4 .lp-card__body {
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 2rem;
-}
-
 .lp-card__left  { display: flex; flex-direction: column; gap: 0.4rem; }
 .lp-card__right { flex: 1; display: flex; flex-direction: column; gap: 0.7rem; }
-
-.lp-card--4 .lp-card__left { flex: 0 0 auto; max-width: 260px; }
 
 .lp-card__foot {
   display: flex;
@@ -744,13 +734,6 @@ body.layout--landing .initial-content {
   }
 
   .lp-card--1 { grid-row: auto; }
-  .lp-card--4 { grid-column: auto; }
-
-  .lp-card--4 .lp-card__body {
-    flex-direction: column;
-  }
-
-  .lp-card--4 .lp-card__left { max-width: none; }
 
   .lp-stats-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -971,6 +954,7 @@ body.layout--landing .initial-content {
 .lp-grid.is-visible .lp-card:nth-child(2) { transition-delay: 0.12s; }
 .lp-grid.is-visible .lp-card:nth-child(3) { transition-delay: 0.24s; }
 .lp-grid.is-visible .lp-card:nth-child(4) { transition-delay: 0.36s; }
+.lp-grid.is-visible .lp-card:nth-child(5) { transition-delay: 0.48s; }
 
 .lp-grid.is-visible .lp-card {
   opacity: 1;

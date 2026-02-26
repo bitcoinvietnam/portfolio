@@ -34,7 +34,7 @@ layout: landing
 
     <p class="lp-hero__sub">
       BitcoinVN backs Bitcoin builders &mdash; operators, founders,
-      and infrastructure teams constructing the financial rails of tomorrow.
+      and infrastructure teams building infrastructure designed to endure.
     </p>
 
     <div class="lp-hero__cta">
@@ -90,10 +90,10 @@ layout: landing
     Backing proven Bitcoin builders with long-term conviction and skin in the game.
   </p>
 
-  {% assign accents = "linear-gradient(90deg,#F7931A,#FFE26E)|linear-gradient(90deg,#8B5CF6,#C084FC)|linear-gradient(90deg,#06B6D4,#3B82F6)|linear-gradient(90deg,#10B981,#34D399)" | split: "|" %}
-  {% assign colors  = "#F7931A|#C084FC|#38BDF8|#34D399"   | split: "|" %}
-  {% assign glows   = "rgba(247,147,26,0.16)|rgba(139,92,246,0.16)|rgba(6,182,212,0.14)|rgba(16,185,129,0.14)" | split: "|" %}
-  {% assign nums    = "01|02|03|04" | split: "|" %}
+  {% assign accents = "linear-gradient(90deg,#F7931A,#FFE26E)|linear-gradient(90deg,#E54065,#F472B6)|linear-gradient(90deg,#8B5CF6,#C084FC)|linear-gradient(90deg,#06B6D4,#3B82F6)|linear-gradient(90deg,#10B981,#34D399)" | split: "|" %}
+  {% assign colors  = "#F7931A|#F472B6|#C084FC|#38BDF8|#34D399" | split: "|" %}
+  {% assign glows   = "rgba(247,147,26,0.16)|rgba(229,64,101,0.16)|rgba(139,92,246,0.16)|rgba(6,182,212,0.14)|rgba(16,185,129,0.14)" | split: "|" %}
+  {% assign nums    = "01|02|03|04|05" | split: "|" %}
 
   <div class="lp-grid">
   {% for post in site.posts %}
@@ -103,6 +103,7 @@ layout: landing
     {% assign t = post.title
       | remove: "BitcoinVN Investment disclosure: "
       | remove: "BitcoinVN – Investment disclosure "
+      | remove: "Investment disclosure - "
       | remove: "BitcoinVN invests in "
       | remove: "Why we invested into " %}
 
@@ -154,31 +155,23 @@ layout: landing
           {% if subtitle != "" %}
             <div class="lp-card__sub">{{ subtitle }}</div>
           {% endif %}
-
-          {% if forloop.index == 4 %}
-          <div class="lp-tags" style="margin-top:0.7rem;">
-            <span class="lp-tag">Bitcoin</span>
-            <span class="lp-tag">Lightning</span>
-            <span class="lp-tag">Vietnam</span>
-          </div>
-          {% endif %}
         </div>
 
         <div class="lp-card__right">
           <p class="lp-card__text">{{ excerpt }}</p>
 
           <div class="lp-card__foot">
-            {% if forloop.index != 4 %}
             <div class="lp-tags">
               <span class="lp-tag">Bitcoin</span>
               {% if post.title contains "Lightning" or post.title contains "Blink" or post.title contains "Neutron" %}
                 <span class="lp-tag">Lightning</span>
               {% endif %}
               {% if post.title contains "Satsback" %}<span class="lp-tag">Payments</span><span class="lp-tag">Europe</span>{% endif %}
+              {% if post.title contains "Branta"   %}<span class="lp-tag">CyberSecurity</span>{% endif %}
               {% if post.title contains "Storage"  %}<span class="lp-tag">Vietnam</span>{% endif %}
               {% if post.title contains "Blink"    %}<span class="lp-tag">El Salvador</span>{% endif %}
+              {% if post.title contains "Neutron"  %}<span class="lp-tag">Vietnam</span>{% endif %}
             </div>
-            {% else %}<div></div>{% endif %}
             <span class="lp-card__go">Read &rarr;</span>
           </div>
         </div>
@@ -196,9 +189,10 @@ layout: landing
   <div class="lp-banner__inner">
     <h2 class="lp-banner__h2">Investing on a Bitcoin Standard</h2>
     <p class="lp-banner__p">
-      We are operators and technologists &mdash; not marketers. We back founders
-      with conviction and persistence who are building infrastructure to last
-      decades, not narratives to sell next quarter.
+      We are operators and technologists &mdash; not marketers.<br>
+      We back founders with conviction and persistence<br>
+      who are building infrastructure to last decades,<br>
+      not narratives to sell next quarter.
     </p>
     <a href="{{ '/about' | relative_url }}" class="lp-btn lp-btn--gold">Learn more about BitcoinVN &rarr;</a>
   </div>
