@@ -409,25 +409,93 @@ body.layout--landing .initial-content {
 }
 
 /* =====================================================================
-   6. INVESTMENT GRID  (asymmetric bento — 5 cards)
-   =====================================================================
-   Desktop:
-     +------------------+ +-----------+
-     |  1  (featured)   | |     2     |
-     |  spans 2 rows    | +-----------+
-     |                  | |     3     |
-     +------------------+ +-----------+
-     +------------------+ +-----------+
-     |        4         | |     5     |
-     +------------------+ +-----------+
+   6. TIMELINE
    ===================================================================== */
-.lp-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 1rem;
+.lp-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0 2rem;
 }
 
-.lp-card--1 { grid-row: span 2; }
+/* Central vertical spine */
+.lp-timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(247,147,26,0.6), rgba(139,92,246,0.4), transparent);
+  transform: translateX(-50%);
+}
+
+/* Year badge */
+.lp-tl-year {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  margin: 1.8rem 0 0.8rem;
+}
+
+.lp-tl-year:first-child { margin-top: 0; }
+
+.lp-tl-year span {
+  display: inline-block;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: 0.82rem;
+  color: #FFE26E;
+  background: #0a1223;
+  border: 1px solid rgba(255,226,110,0.2);
+  padding: 0.3em 1.2em;
+  border-radius: 100px;
+  letter-spacing: 0.08em;
+}
+
+/* Timeline item row */
+.lp-tl-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0.7rem 0;
+}
+
+.lp-tl-item--right {
+  justify-content: flex-start;
+  padding-left: calc(50% + 28px);
+}
+
+.lp-tl-item--left {
+  justify-content: flex-end;
+  padding-right: calc(50% + 28px);
+}
+
+/* Glowing dot on the spine */
+.lp-tl-dot {
+  position: absolute;
+  left: 50%;
+  top: 1.6rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--card-color, #F7931A);
+  border: 2.5px solid #0a1223;
+  box-shadow: 0 0 10px var(--card-glow, rgba(247,147,26,0.3));
+  transform: translateX(-50%) scale(0);
+  z-index: 2;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lp-tl-item.is-visible .lp-tl-dot {
+  transform: translateX(-50%) scale(1);
+}
+
+/* Card fills available half */
+.lp-tl-item .lp-card {
+  flex: 1;
+  max-width: 100%;
+}
 
 /* =====================================================================
    7. CARD
@@ -466,20 +534,6 @@ body.layout--landing .initial-content {
   background: var(--card-accent, linear-gradient(90deg, #F7931A, #FFE26E));
 }
 
-/* Number watermark */
-.lp-card__num {
-  position: absolute;
-  bottom: -0.6rem;
-  right: 0.6rem;
-  font-size: 7rem;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.06em;
-  color: rgba(255,255,255,0.025);
-  pointer-events: none;
-  user-select: none;
-}
-
 /* Inner body */
 .lp-card__body {
   display: flex;
@@ -487,44 +541,6 @@ body.layout--landing .initial-content {
   gap: 0.5rem;
   padding: 1rem 1.2rem 1.2rem;
   flex: 1;
-}
-
-/* Featured card: gradient header zone */
-.lp-card--1 .lp-card__zone {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1.2rem;
-  background: linear-gradient(135deg,
-    rgba(247,147,26,0.14) 0%,
-    rgba(255,226,110,0.05) 100%);
-  border-bottom: 1px solid rgba(247,147,26,0.12);
-}
-
-.lp-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35em;
-  font-size: 0.55rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 0.22em 0.7em;
-  border-radius: 100px;
-}
-
-.lp-pill--orange {
-  color: #F7931A;
-  background: rgba(247,147,26,0.12);
-  border: 1px solid rgba(247,147,26,0.25);
-}
-
-.lp-pill--orange::before {
-  content: "";
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #F7931A;
-  box-shadow: 0 0 5px #F7931A;
 }
 
 .lp-card__date {
@@ -555,13 +571,6 @@ body.layout--landing .initial-content {
   border: 1px solid rgba(255,255,255,0.08);
 }
 
-.lp-card--1 .lp-card__icon {
-  width: 36px;
-  height: 36px;
-  font-size: 0.95rem;
-  margin-bottom: 0.3rem;
-}
-
 /* Thumbnail images replacing icons */
 .lp-card__thumb {
   width: 64px;
@@ -588,24 +597,13 @@ body.layout--landing .initial-content {
   margin-bottom: 0;
 }
 
-.lp-card--1 .lp-card__thumb {
-  width: 72px;
-  height: 72px;
-  border-radius: 14px;
-}
-
 .lp-card__name {
-  font-family: "DM Serif Display", Georgia, serif;
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
   color: #fff;
   letter-spacing: -0.01em;
   line-height: 1.2;
-}
-
-.lp-card--1 .lp-card__name {
-  font-size: 1.1rem;
-  letter-spacing: -0.02em;
 }
 
 .lp-card__sub {
@@ -729,11 +727,27 @@ body.layout--landing .initial-content {
 
 /* --- Tablet (max 860px) ---------------------------------------------- */
 @media (max-width: 860px) {
-  .lp-grid {
-    grid-template-columns: 1fr;
+  /* Timeline: spine shifts to left, all cards on right */
+  .lp-timeline::before {
+    left: 24px;
+    transform: none;
   }
 
-  .lp-card--1 { grid-row: auto; }
+  .lp-tl-year {
+    align-self: flex-start;
+    margin-left: 10px;
+  }
+
+  .lp-tl-item--right,
+  .lp-tl-item--left {
+    padding-left: 52px;
+    padding-right: 0;
+    justify-content: flex-start;
+  }
+
+  .lp-tl-dot {
+    left: 24px;
+  }
 
   .lp-stats-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -837,6 +851,24 @@ body.layout--landing .initial-content {
     padding: 2rem 1rem 1.5rem;
   }
 
+  /* Timeline mobile */
+  .lp-timeline::before {
+    left: 16px;
+  }
+
+  .lp-tl-year {
+    margin-left: 2px;
+  }
+
+  .lp-tl-item--right,
+  .lp-tl-item--left {
+    padding-left: 40px;
+  }
+
+  .lp-tl-dot {
+    left: 16px;
+  }
+
   /* Cards */
   .lp-card__body {
     padding: 1rem 1rem 1rem;
@@ -844,10 +876,6 @@ body.layout--landing .initial-content {
 
   .lp-card__name {
     font-size: 1rem;
-  }
-
-  .lp-card--1 .lp-card__name {
-    font-size: 1.15rem;
   }
 
   .lp-card__sub {
@@ -881,14 +909,6 @@ body.layout--landing .initial-content {
     padding: 0.25em 0.7em;
   }
 
-  .lp-pill {
-    font-size: 0.58rem;
-  }
-
-  .lp-card__num {
-    font-size: 5rem;
-  }
-
   /* Thumbnails */
   .lp-card__thumb {
     width: 56px;
@@ -898,11 +918,6 @@ body.layout--landing .initial-content {
   .lp-card__thumb--sm {
     width: 46px;
     height: 46px;
-  }
-
-  .lp-card--1 .lp-card__thumb {
-    width: 64px;
-    height: 64px;
   }
 
   /* Banner */
@@ -942,23 +957,44 @@ body.layout--landing .initial-content {
   transform: translateY(0);
 }
 
-/* Stagger children within the portfolio grid */
-.lp-grid .lp-card {
+/* Timeline items: directional slide-in */
+.lp-tl-item {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.lp-grid.is-visible .lp-card:nth-child(1) { transition-delay: 0s; }
-.lp-grid.is-visible .lp-card:nth-child(2) { transition-delay: 0.12s; }
-.lp-grid.is-visible .lp-card:nth-child(3) { transition-delay: 0.24s; }
-.lp-grid.is-visible .lp-card:nth-child(4) { transition-delay: 0.36s; }
-.lp-grid.is-visible .lp-card:nth-child(5) { transition-delay: 0.48s; }
+.lp-tl-item--right {
+  transform: translateX(40px);
+}
 
-.lp-grid.is-visible .lp-card {
+.lp-tl-item--left {
+  transform: translateX(-40px);
+}
+
+.lp-tl-item.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Year marker fade-in */
+.lp-tl-year {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lp-tl-year.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Mobile: all items slide from right */
+@media (max-width: 860px) {
+  .lp-tl-item--left {
+    transform: translateX(40px);
+  }
 }
 
 /* Stagger stat cards */
