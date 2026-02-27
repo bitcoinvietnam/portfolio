@@ -1,6 +1,6 @@
 ---
 title: "Why we invested into Neutronpay"
-image: /assets/images/neutron.svg
+image: /assets/images/neutron-logo-dark.png
 categories:
 tags:
 investment_name: "Neutron (formerly Neutronpay)"
