@@ -34,17 +34,20 @@ layout: landing
 
     <p class="lp-hero__sub">
       BitcoinVN backs Bitcoin builders &mdash; operators, founders,
-      and infrastructure teams building infrastructure designed to endure.
+      and engineering teams building infrastructure designed to endure.
     </p>
 
     <div class="lp-hero__cta">
       <a href="#investments" class="lp-btn lp-btn--gold">View Portfolio &darr;</a>
-      <a href="https://bitcoinvn.io" class="lp-btn lp-btn--outline" target="_blank" rel="noopener">Visit BitcoinVN &rarr;</a>
+      <a href="https://bitcoinvn.io" class="lp-btn lp-btn--outline" target="_blank" rel="noopener">Visit BitcoinVN
+        &rarr;</a>
     </div>
   </div>
 
   <div class="lp-scroll" aria-hidden="true">
-    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    <svg viewBox="0 0 24 24">
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
     <span>scroll</span>
   </div>
 </section>
@@ -90,84 +93,94 @@ layout: landing
     Backing proven Bitcoin builders with long-term conviction and skin in the game.
   </p>
 
-  {% assign accents = "linear-gradient(90deg,#F7931A,#FFE26E)|linear-gradient(90deg,#E54065,#F472B6)|linear-gradient(90deg,#8B5CF6,#C084FC)|linear-gradient(90deg,#06B6D4,#3B82F6)|linear-gradient(90deg,#10B981,#34D399)" | split: "|" %}
-  {% assign colors  = "#F7931A|#F472B6|#C084FC|#38BDF8|#34D399" | split: "|" %}
-  {% assign glows   = "rgba(247,147,26,0.16)|rgba(229,64,101,0.16)|rgba(139,92,246,0.16)|rgba(6,182,212,0.14)|rgba(16,185,129,0.14)" | split: "|" %}
+  {% assign accents =
+  "linear-gradient(90deg,#F7931A,#FFE26E)|linear-gradient(90deg,#E54065,#F472B6)|linear-gradient(90deg,#8B5CF6,#C084FC)|linear-gradient(90deg,#06B6D4,#3B82F6)|linear-gradient(90deg,#10B981,#34D399)"
+  | split: "|" %}
+  {% assign colors = "#F7931A|#F472B6|#C084FC|#38BDF8|#34D399" | split: "|" %}
+  {% assign glows =
+  "rgba(247,147,26,0.16)|rgba(229,64,101,0.16)|rgba(139,92,246,0.16)|rgba(6,182,212,0.14)|rgba(16,185,129,0.14)" |
+  split: "|" %}
   {% assign prev_year = "" %}
 
   <div class="lp-timeline">
-  {% for post in site.posts %}
+    {% for post in site.posts %}
     {% assign i = forloop.index0 %}
-    {% assign post_year = post.date | date: "%Y" %}
 
-    {% if post_year != prev_year %}
-    <div class="lp-tl-year"><span>{{ post_year }}</span></div>
-    {% assign prev_year = post_year %}
+    {% comment %} Resolve display date from custom field or fallback to post date {% endcomment %}
+    {% if post.investment_date and post.investment_date != "" %}
+    {% assign inv_date = post.investment_date %}
+    {% else %}
+    {% assign inv_date = post.date | date: "%b %Y" %}
+    {% endif %}
+
+    {% comment %} Extract year from inv_date string (e.g. "Feb 2026" → "2026") {% endcomment %}
+    {% assign inv_year = inv_date | split: " " | last %}
+
+    {% if inv_year != prev_year %}
+    <div class="lp-tl-year"><span>{{ inv_year }}</span></div>
+    {% assign prev_year = inv_year %}
     {% endif %}
 
     {% comment %} Clean title {% endcomment %}
     {% assign t = post.title
-      | remove: "BitcoinVN Investment disclosure: "
-      | remove: "BitcoinVN – Investment disclosure "
-      | remove: "Investment disclosure - "
-      | remove: "BitcoinVN invests in "
-      | remove: "Why we invested into " %}
+    | remove: "BitcoinVN Investment disclosure: "
+    | remove: "BitcoinVN – Investment disclosure "
+    | remove: "Investment disclosure - "
+    | remove: "BitcoinVN invests in "
+    | remove: "Why we invested into " %}
 
-    {% assign parts_em  = t | split: " – " %}
+    {% assign parts_em = t | split: " – " %}
     {% assign parts_reg = t | split: " - " %}
     {% if parts_em.size > 1 %}
-      {% assign company  = parts_em[0] %}
-      {% assign subtitle = parts_em[1] %}
+    {% assign company = parts_em[0] %}
     {% elsif parts_reg.size > 1 %}
-      {% assign company  = parts_reg[0] %}
-      {% assign subtitle = parts_reg[1] %}
+    {% assign company = parts_reg[0] %}
     {% else %}
-      {% assign company  = t %}
-      {% assign subtitle = "" %}
+    {% assign company = t %}
     {% endif %}
 
-    {% assign excerpt = post.content | strip_html | strip_newlines | truncatewords: 30 %}
+    {% if post.investment_excerpt and post.investment_excerpt != "" %}
+    {% assign inv_excerpt = post.investment_excerpt %}
+    {% else %}
+    {% assign inv_excerpt = "" %}
+    {% endif %}
     {% assign side = forloop.index0 | modulo: 2 %}
 
     <div class="lp-tl-item {% if side == 0 %}lp-tl-item--right{% else %}lp-tl-item--left{% endif %}"
-         style="--card-accent:{{ accents[i] }};--card-color:{{ colors[i] }};--card-glow:{{ glows[i] }};">
+      style="--card-accent:{{ accents[i] }};--card-color:{{ colors[i] }};--card-glow:{{ glows[i] }};">
       <div class="lp-tl-dot"></div>
       <a href="{{ post.url | relative_url }}" class="lp-card">
         <div class="lp-card__bar"></div>
         <div class="lp-card__body">
-          <div class="lp-card__left">
-            <div class="lp-card__row">
-              {% if post.image %}
-                <div class="lp-card__thumb lp-card__thumb--sm"><img src="{{ post.image | relative_url }}" alt="{{ company }}"></div>
-              {% endif %}
-              <span class="lp-card__date">{{ post.date | date: "%b %Y" }}</span>
-            </div>
+          <div class="lp-card__head">
             <div class="lp-card__name">{{ company }}</div>
-            {% if subtitle != "" %}
-              <div class="lp-card__sub">{{ subtitle }}</div>
-            {% endif %}
+            <span class="lp-card__date">{{ inv_date }}</span>
           </div>
-          <div class="lp-card__right">
-            <p class="lp-card__text">{{ excerpt }}</p>
-            <div class="lp-card__foot">
-              <div class="lp-tags">
-                <span class="lp-tag">Bitcoin</span>
-                {% if post.title contains "Lightning" or post.title contains "Blink" or post.title contains "Neutron" %}
-                  <span class="lp-tag">Lightning</span>
-                {% endif %}
-                {% if post.title contains "Satsback" %}<span class="lp-tag">Payments</span><span class="lp-tag">Europe</span>{% endif %}
-                {% if post.title contains "Branta"   %}<span class="lp-tag">CyberSecurity</span>{% endif %}
-                {% if post.title contains "Storage"  %}<span class="lp-tag">Vietnam</span>{% endif %}
-                {% if post.title contains "Blink"    %}<span class="lp-tag">El Salvador</span>{% endif %}
-                {% if post.title contains "Neutron"  %}<span class="lp-tag">Vietnam</span>{% endif %}
-              </div>
-              <span class="lp-card__go">Read &rarr;</span>
+          {% if post.image %}
+          <div class="lp-card__thumb">
+            <img src="{{ post.image | relative_url }}" alt="{{ company }}">
+          </div>
+          {% endif %}
+          {% if inv_excerpt != "" %}<p class="lp-card__text">{{ inv_excerpt }}</p>{% endif %}
+          <div class="lp-card__foot">
+            <div class="lp-tags">
+              <span class="lp-tag">Bitcoin</span>
+              {% if post.title contains "Lightning" or post.title contains "Blink" or post.title contains "Neutron" %}
+              <span class="lp-tag">Lightning</span>
+              {% endif %}
+              {% if post.title contains "Satsback" %}<span class="lp-tag">Payments</span><span
+                class="lp-tag">Europe</span>{% endif %}
+              {% if post.title contains "Branta" %}<span class="lp-tag">CyberSecurity</span>{% endif %}
+              {% if post.title contains "Storage" %}<span class="lp-tag">Vietnam</span>{% endif %}
+              {% if post.title contains "Blink" %}<span class="lp-tag">El Salvador</span>{% endif %}
+              {% if post.title contains "Neutron" %}<span class="lp-tag">Vietnam</span>{% endif %}
             </div>
+            <span class="lp-card__go">Read &rarr;</span>
           </div>
         </div>
       </a>
     </div>
-  {% endfor %}
+    {% endfor %}
   </div>
 </section>
 
@@ -188,65 +201,65 @@ layout: landing
 
 <!-- =============  SCROLL ANIMATIONS JS  ============= -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  /* --- Fade-in on scroll (IntersectionObserver) --- */
-  var fadeEls = document.querySelectorAll('.lp-fadein, .lp-stats-grid');
-  var fadeObs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) {
-        e.target.classList.add('is-visible');
-        fadeObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  fadeEls.forEach(function (el) { fadeObs.observe(el); });
+  document.addEventListener('DOMContentLoaded', function () {
+    /* --- Fade-in on scroll (IntersectionObserver) --- */
+    var fadeEls = document.querySelectorAll('.lp-fadein, .lp-stats-grid');
+    var fadeObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          fadeObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    fadeEls.forEach(function (el) { fadeObs.observe(el); });
 
-  /* --- Timeline items: directional slide-in --- */
-  var tlEls = document.querySelectorAll('.lp-tl-item, .lp-tl-year');
-  var tlObs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) {
-        e.target.classList.add('is-visible');
-        tlObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  tlEls.forEach(function (el) { tlObs.observe(el); });
+    /* --- Timeline items: directional slide-in --- */
+    var tlEls = document.querySelectorAll('.lp-tl-item, .lp-tl-year');
+    var tlObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          tlObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    tlEls.forEach(function (el) { tlObs.observe(el); });
 
-  /* --- Count-up animation for stats --- */
-  var counted = false;
-  var statsSection = document.getElementById('lp-stats');
-  if (!statsSection) return;
+    /* --- Count-up animation for stats --- */
+    var counted = false;
+    var statsSection = document.getElementById('lp-stats');
+    if (!statsSection) return;
 
-  var countObs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting && !counted) {
-        counted = true;
-        countObs.unobserve(statsSection);
-        animateCounts();
-      }
-    });
-  }, { threshold: 0.3 });
-  countObs.observe(statsSection);
+    var countObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && !counted) {
+          counted = true;
+          countObs.unobserve(statsSection);
+          animateCounts();
+        }
+      });
+    }, { threshold: 0.3 });
+    countObs.observe(statsSection);
 
-  function animateCounts() {
-    var counters = statsSection.querySelectorAll('[data-count]');
-    counters.forEach(function (el) {
-      var target = parseInt(el.getAttribute('data-count'), 10);
-      var suffix = el.getAttribute('data-suffix') || '';
-      var duration = 1600;
-      var start = performance.now();
+    function animateCounts() {
+      var counters = statsSection.querySelectorAll('[data-count]');
+      counters.forEach(function (el) {
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        var duration = 1600;
+        var start = performance.now();
 
-      function step(now) {
-        var elapsed = now - start;
-        var progress = Math.min(elapsed / duration, 1);
-        var ease = 1 - Math.pow(1 - progress, 3);
-        var current = Math.round(ease * target);
-        el.textContent = current + suffix;
-        if (progress < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    });
-  }
-});
+        function step(now) {
+          var elapsed = now - start;
+          var progress = Math.min(elapsed / duration, 1);
+          var ease = 1 - Math.pow(1 - progress, 3);
+          var current = Math.round(ease * target);
+          el.textContent = current + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+  });
 </script>

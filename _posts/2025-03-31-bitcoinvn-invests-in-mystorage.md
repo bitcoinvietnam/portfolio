@@ -3,6 +3,8 @@ title: "BitcoinVN invests in MyStorage - leading self-storage provider in HCMC,
 categories:
 tags:
 image: /assets/images/bitcoinvn-invests-mystorage-1.jpg
+investment_date: "Sep 2024"
+investment_excerpt: "The ability to book transport directly through MyStorage further simplifies logistics, allowing us to save on our most scarce resources."
 ---
 
 While we have been slow to disclose, we plan to follow up in the coming weeks with additional official announcements on investments our team has made in recent months.

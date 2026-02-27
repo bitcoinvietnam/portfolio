@@ -3,6 +3,8 @@ title: "Why we invested into Neutronpay"
 image: /assets/images/neutronpay.png
 categories:
 tags:
+investment_date: "Feb 2021"
+investment_excerpt: "Lightning Network Infrastructure for Global Payments, Spending, Remittances, Payouts. Why did we invest into Neutron? The business case – Bitcoin, Scaling and the Lightning Network."
 ---
 As [announced this week](https://news.bitcoinvn.io/bitcoinvn-leading-seed-funding-round-in-neutronpay/?lang=en) our firm has been moving ahead with leading the Seed Round into [Neutronpay](https://neutronpay.com), which has established itself over the past two years as the leading Lightning Service provider in Vietnam.
 

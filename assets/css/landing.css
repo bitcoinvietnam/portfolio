@@ -538,8 +538,8 @@ body.layout--landing .initial-content {
 .lp-card__body {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem 1.2rem 1.2rem;
+  gap: 0.55rem;
+  padding: 1rem 1.2rem 1rem;
   flex: 1;
 }
 
@@ -571,16 +571,15 @@ body.layout--landing .initial-content {
   border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* Thumbnail images replacing icons */
+/* Thumbnail — full-width banner below card title */
 .lp-card__thumb {
-  width: 64px;
-  height: 64px;
-  border-radius: 12px;
+  width: 100%;
+  height: 160px;
+  border-radius: 8px;
   flex-shrink: 0;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.1);
-  margin-bottom: 0.4rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
 }
 
 .lp-card__thumb img {
@@ -588,13 +587,6 @@ body.layout--landing .initial-content {
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-.lp-card__thumb--sm {
-  width: 52px;
-  height: 52px;
-  border-radius: 10px;
-  margin-bottom: 0;
 }
 
 .lp-card__name {
@@ -622,8 +614,12 @@ body.layout--landing .initial-content {
   flex: 1;
 }
 
-.lp-card__left  { display: flex; flex-direction: column; gap: 0.4rem; }
-.lp-card__right { flex: 1; display: flex; flex-direction: column; gap: 0.7rem; }
+.lp-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
 
 .lp-card__foot {
   display: flex;
@@ -870,8 +866,8 @@ body.layout--landing .initial-content {
   }
 
   /* Cards */
-  .lp-card__body {
-    padding: 1rem 1rem 1rem;
+  .lp-card__thumb {
+    height: 100px;
   }
 
   .lp-card__name {
