@@ -1,8 +1,9 @@
 ---
 title: "Why we invested into Neutronpay"
-image: /assets/images/neutronpay.png
+image: /assets/images/neutron.svg
 categories:
 tags:
+investment_name: "Neutron (formerly Neutronpay)"
 investment_date: "Feb 2021"
 investment_excerpt: "Lightning Network Infrastructure for Global Payments, Spending, Remittances, Payouts. Why did we invest into Neutron? The business case – Bitcoin, Scaling and the Lightning Network."
 ---

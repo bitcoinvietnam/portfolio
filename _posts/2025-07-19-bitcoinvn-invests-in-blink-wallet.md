@@ -3,6 +3,7 @@ title: "BitcoinVN – Investment disclosure Blink Wallet – El Salvador’s Lea
 image: /assets/images/bitcoinvn-invest-in-blink.webp
 categories:
 tags:
+investment_name: "Blink Wallet"
 investment_date: "Dec 2024"
 investment_excerpt: "A pioneer in Lightning adoption since the early days of Bitcoin in El Salvador – and continues to serve as the go-to wallet for grassroots circular economies across Latin America & Africa."
 ---

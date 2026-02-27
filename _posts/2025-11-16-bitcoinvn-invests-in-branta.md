@@ -3,6 +3,7 @@ title: "Investment disclosure - Branta Inc - CyberSecurity for Payments in the 2
 image: /assets/images/branta.webp
 categories:
 tags:
+investment_name: "Branta"
 investment_date: "June 2025"
 investment_excerpt: "Branta combats cyber-crime before it succeeds. Its flagship product, GUARDRAIL, detects address-phishing and supply-chain attacks before loss occurs."
 ---

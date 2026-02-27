@@ -3,6 +3,7 @@ title: "BitcoinVN Investment disclosure: Satsback Labs – the incentive layer f
 image: /assets/images/satsback.jpg
 categories:
 tags:
+investment_name: "Satsback Labs"
 investment_date: "Sep 2025"
 investment_excerpt: "Satsback builds the incentive layer for Lightning payments. It enables merchants to reduce payment friction while allowing consumers to earn Bitcoin as they spend."
 ---

@@ -90,7 +90,7 @@ layout: landing
   <span class="lp-eyebrow">Portfolio</span>
   <h2 class="lp-heading">Our Investments</h2>
   <p class="lp-subdesc">
-    Backing proven Bitcoin builders with long-term conviction and skin in the game.
+    Backing proven entrepreneurs with long-term conviction and skin in the game.
   </p>
 
   {% assign accents =
@@ -121,22 +121,25 @@ layout: landing
     {% assign prev_year = inv_year %}
     {% endif %}
 
-    {% comment %} Clean title {% endcomment %}
-    {% assign t = post.title
-    | remove: "BitcoinVN Investment disclosure: "
-    | remove: "BitcoinVN – Investment disclosure "
-    | remove: "Investment disclosure - "
-    | remove: "BitcoinVN invests in "
-    | remove: "Why we invested into " %}
-
-    {% assign parts_em = t | split: " – " %}
-    {% assign parts_reg = t | split: " - " %}
-    {% if parts_em.size > 1 %}
-    {% assign company = parts_em[0] %}
-    {% elsif parts_reg.size > 1 %}
-    {% assign company = parts_reg[0] %}
+    {% comment %} Company name: custom field takes priority over title parsing {% endcomment %}
+    {% if post.investment_name and post.investment_name != "" %}
+      {% assign company = post.investment_name %}
     {% else %}
-    {% assign company = t %}
+      {% assign t = post.title
+      | remove: "BitcoinVN Investment disclosure: "
+      | remove: "BitcoinVN – Investment disclosure "
+      | remove: "Investment disclosure - "
+      | remove: "BitcoinVN invests in "
+      | remove: "Why we invested into " %}
+      {% assign parts_em = t | split: " – " %}
+      {% assign parts_reg = t | split: " - " %}
+      {% if parts_em.size > 1 %}
+        {% assign company = parts_em[0] %}
+      {% elsif parts_reg.size > 1 %}
+        {% assign company = parts_reg[0] %}
+      {% else %}
+        {% assign company = t %}
+      {% endif %}
     {% endif %}
 
     {% if post.investment_excerpt and post.investment_excerpt != "" %}
