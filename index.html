@@ -167,7 +167,11 @@ layout: landing
           {% if inv_excerpt != "" %}<p class="lp-card__text">{{ inv_excerpt }}</p>{% endif %}
           <div class="lp-card__foot">
             <div class="lp-tags">
+              {% if post.title contains "Storage" %}
+              <span class="lp-tag">Logistics</span><span class="lp-tag">Real-World Infrastructure</span>
+              {% else %}
               <span class="lp-tag">Bitcoin</span>
+              {% endif %}
               {% if post.title contains "Lightning" or post.title contains "Blink" or post.title contains "Neutron" %}
               <span class="lp-tag">Lightning</span>
               {% endif %}
